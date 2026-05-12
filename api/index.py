@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from flask import Flask
+from flask import *
 
 app = Flask(__name__)
 
@@ -21,3 +21,6 @@ def test_db():
         return f"Connected! Database time is: {time}"
     except Exception as e:
         return f"Connection failed: {e}"
+@app.route('/')
+def index():
+    return render_template("index.html")
